@@ -42,6 +42,23 @@ Skills also activate automatically based on what you're doing — designing an A
 
 ## Quick Start
 
+**Fastest path — any agent, one command.** The open [skills CLI](https://github.com/vercel-labs/skills) installs into 70+ agents (Claude Code, Cursor, Codex, Copilot, Cline, and more):
+
+```bash
+npx skills add addyosmani/agent-skills            # install all 24 skills
+npx skills add addyosmani/agent-skills --list     # browse before installing
+```
+
+Or grab individual skills:
+
+```bash
+npx skills add addyosmani/agent-skills --skill code-review-and-quality   # five-axis review before merge
+npx skills add addyosmani/agent-skills --skill interview-me              # requirements interrogation, one question at a time
+npx skills add addyosmani/agent-skills --skill test-driven-development   # red-green-refactor, enforced
+```
+
+Prefer a native integration? Pick your tool below.
+
 <details>
 <summary><b>Claude Code (recommended)</b></summary>
 
@@ -142,7 +159,20 @@ Use agent definitions from `agents/` as Copilot personas and skill content in `.
 </details>
 
 <details>
-<summary><b>Codex / Other Agents</b></summary>
+<summary><b>Codex</b></summary>
+
+Install as a native Codex plugin (Codex CLI v0.122+):
+
+```bash
+codex plugin marketplace add addyosmani/agent-skills
+```
+
+Codex reads the root `skills/` directory directly through `.codex-plugin/plugin.json`. Once installed, invoke skills in chat using `@` (e.g., `@spec-driven-development`). See [docs/codex-setup.md](docs/codex-setup.md) for local installation and troubleshooting.
+
+</details>
+
+<details>
+<summary><b>Other Agents</b></summary>
 
 Skills are plain Markdown - they work with any agent that accepts system prompts or instruction files. See [docs/getting-started.md](docs/getting-started.md).
 
